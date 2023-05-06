@@ -1,3 +1,10 @@
+<?php
+
+// Incluir la conexion con db aqui para que quede global para todos los archivos que incluyan header.php
+include_once("connection_sqlsrvr.php");
+
+?>
+
 <!DOCTYPE html>
 <!--
 This is a starter template page. Use this page to start your new project from
