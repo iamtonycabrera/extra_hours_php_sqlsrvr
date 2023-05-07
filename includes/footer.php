@@ -44,7 +44,7 @@
                 <div class="col-xs-6">
                     <div class="form-group">
                       <label for="centrocostos">Buscar empleado:</label>
-                      <input type="text" class="form-control" id="buscaCedula" placeholder="Ingresa un # de cédula"> 
+                      <input type="text" class="form-control" id="buscaDni" placeholder="Ingresa un DNI"> 
 
                       <!-- En este div se muestran los mensajes de rror si los hubiera-->
 									    <div id="mensajes" style="color: red;"></div> 	         
@@ -55,9 +55,9 @@
                   <div class="form-group">					                
                     <!-- Our search button -->
                     <!-- Our search button -->
-              <!--<input type="button" id="buscar_cedula" value="Search">	-->
+              <!--<input type="button" id="buscar_dni" value="Search">	-->
               &nbsp;
-              <button id="buscar_cedula" class="btn btn-primary"><i class="fa fa-search"></i> Buscar</button>			   
+              <button id="buscar_dni" class="btn btn-primary"><i class="fa fa-search"></i> Buscar</button>			   
                  </div>					                        
              </div>		          
           </div>		              		

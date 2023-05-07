@@ -13,8 +13,8 @@
               <div class="card-body">
               <form method="POST" action="<?php $_SERVER['PHP_SELF']; ?>">
                     <div class="form-group">
-                        <label for="cedula"># de Cédula:</label>
-                        <input type="number" class="form-control" name="cedula" placeholder="Ingresa el # de cédula">
+                        <label for="dni">DNI:</label>
+                        <input type="number" class="form-control" name="dni" placeholder="Ingresa el DNI">
                     </div>
                     <div class="form-group">
                         <label for="nombre">Nombre:</label>
