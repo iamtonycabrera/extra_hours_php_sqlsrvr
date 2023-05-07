@@ -1,4 +1,19 @@
-<?php include "includes/header.php" ?>
+<?php
+
+include "includes/header.php";
+
+// Configurar zona horaria
+date_default_timezone_set("Europe/Madrid");
+
+// Obtener los datos
+$query = "SELECT * FROM registros";
+$stmt = $conn->query($query);
+
+$registros = $stmt->fetchAll(PDO::FETCH_OBJ);
+
+
+
+?>
 
               <div class="card-header">               
                 <div class="row">
@@ -29,18 +44,18 @@
                   </tr>
                   </thead>
                   <tbody>
-                   
+                   <?php foreach($registros as $fila) : ?>
                       <tr>
-                          <td>Test</td>
-                          <td>Test</td>
-                          <td>Test</td>
-                          <td>Test</td>
-                          <td>Test</td>
-                          <td>Test</td>
-                          <td>Test</td>
-                          <td>Test</td>                        
+                          <td><?php echo $fila->id ?></td>
+                          <td><?php echo $fila->tipo ?></td>
+                          <td><?php echo $fila->fecha ?></td>
+                          <td><?php echo $fila->festivo ?></td>
+                          <td><?php echo $fila->hora_inicial ?></td>
+                          <td><?php echo $fila->hora_final ?></td>
+                          <td><?php echo $fila->empleado_id ?></td>
+                          <td><?php echo $fila->fecha_creacion ?></td>                        
                       </tr>
-                   
+                   <?php endforeach ?>
                   </tbody>                  
                 </table>
               </div>

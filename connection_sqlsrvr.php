@@ -14,7 +14,7 @@ try {
 
     //Mostgrar mensaje si la conexión es correcta
     if ($conn) {
-        echo "Conectado a la base correctamente!";
+        // echo "Conectado a la base correctamente!";
         echo "\n";
     }
 } catch (PDOException $e) {
