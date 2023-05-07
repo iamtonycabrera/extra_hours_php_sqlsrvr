@@ -13,6 +13,56 @@ $registros = $stmt->fetchAll(PDO::FETCH_OBJ);
 
 
 
+// Insertamos datos
+if (isset($_POST['registrarHoras'])) {
+  // Obtener los valores
+  $idEmpleado = $_POST['idEmpleado'];
+  $fecha = $_POST['fecha'];
+  $festivo = $_POST['festivo'];
+  $horaInicial = $_POST['horaInicial'];
+  $horaFinal = $_POST['horaFinal'];
+
+  // Validamos si esta vacio
+  if (empty($idEmpleado) || empty($fecha) || empty($horaInicial) || empty($horaFinal)) {
+      $error = "Error, algunos campos obligatorios están vacíos";
+      header("Location: lista_horas.php?error=" . $error);
+  } else {
+
+      // Si pasa por aqui es porque se puede ingresar el nuevo registro
+      $query = "INSERT INTO registros(tipo, fecha, festivo, hora_inicial, hora_final, empleado_id, fecha_creacion)VALUES(:tipo, :fecha, :festivo, :hora_inicial, :hora_final, :empleado_id, :fecha_creacion)";
+      
+      $fechaActual = date("Y-m-d");
+      $festivoEvaluado = null;
+      $tipo = "Registro horas extras";
+
+      if ($festivo != "") {
+        $festivoEvaluado = $festivo;
+      }
+
+      $stmt = $conn->prepare($query);
+      $stmt->bindParam(":tipo", $tipo, PDO::PARAM_STR);
+      $stmt->bindParam(":fecha", $fecha, PDO::PARAM_STR);
+      $stmt->bindParam(":festivo", $festivoEvaluado, PDO::PARAM_STR);
+      $stmt->bindParam(":hora_inicial", $horaInicial, PDO::PARAM_STR);
+      $stmt->bindParam(":hora_final", $horaFinal, PDO::PARAM_STR);
+      $stmt->bindParam(":empleado_id", $idEmpleado, PDO::PARAM_INT);
+      $stmt->bindParam(":fecha_creacion", $fechaActual, PDO::PARAM_STR);
+
+      $result = $stmt->execute();
+
+      if ($result) {
+          $mensaje = "Registro de horas creado correctamente";
+          echo ("<meta http-equiv='refresh' content='1'>"); // Refrescar por HTTP
+          exit();
+      } else {
+          $error = "Error, no se pudo crear el registro";
+          header("Location: lista_horas.php?error=" . $error);
+          exit();
+      }
+  }
+}
+
+
 ?>
 
 <div class="card-header">
