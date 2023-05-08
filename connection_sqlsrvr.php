@@ -3,10 +3,12 @@
 //Configurar datos de acceso a la Base de datos
 // $host = "localhost";
 // $dbname = "HorasExtras";
-$dbuser = "DESKTOP-TC2CTH8\doggie";
+$dbuser = "DESKTOP-VAAL2B5\admin";
 $userpass = "";
 
-$dsn = "sqlsrv:Server=DESKTOP-TC2CTH8;Database=HorasExtras"; $dbuser; $userpass;
+$dsn = "sqlsrv:Server=DESKTOP-VAAL2B5\SQLEXPRESS;Database=HorasExtras";
+$dbuser;
+$userpass;
 
 try {
     //Crear conexión a postgress
